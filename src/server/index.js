@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import DBConn from './DBConn';
 import productsRoute from './routes/product';
 if (process.env.NODE_ENV === 'development') {
@@ -6,6 +7,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 const app = express();
 const PORT = process.env.PORT || 8000;
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/api/products', productsRoute);

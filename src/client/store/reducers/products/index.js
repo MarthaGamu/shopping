@@ -1,8 +1,13 @@
 import { FETCH_PRODUCTS, FILTER, SORT_BY } from './types';
 
-const reducer = (initialState, action) => {
+const InitState = {
+  products: [],
+};
+const reducer = (initialState = InitState, action) => {
+  console.log('FETCHING START...1');
   switch (action.type) {
     case FETCH_PRODUCTS: {
+      console.log('FETCHING START...');
       return {
         ...initialState,
         products: action.payload,

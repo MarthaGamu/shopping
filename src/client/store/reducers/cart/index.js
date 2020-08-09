@@ -6,8 +6,20 @@ import {
   REMOVE_FROM_CART,
   LOADING,
   SHOW_PRODUCTS,
-} from "./types";
-const reducer = (initialState, action) => {
+} from './types';
+
+const initState = {
+  products: [],
+  error: {
+    isError: false,
+    errorMessage: null,
+  },
+  loading: {
+    isLoading: false,
+    loadingMessage: null,
+  },
+};
+const reducer = (initialState = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
       return {
@@ -20,7 +32,7 @@ const reducer = (initialState, action) => {
       return {
         ...initialState,
         products: initialState.products.filter(
-          (product) => product.id !== action.payload.id
+          (product) => product.id !== action.payload.id,
         ),
       };
     }

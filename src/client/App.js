@@ -1,6 +1,10 @@
 import React from 'react';
-
+import ProductListing from './pages/ProductListing';
 const App = () => {
-  return <>test</>;
+  return (
+    <>
+      <ProductListing />
+    </>
+  );
 };
 export default App;
